@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div>
-        <h2 class="text-center">Excercise 1</h2>
+        <h2 class="text-center">Ejercicio 1</h2>
         <hr>
 
         <a class="btn btn-secondary btn-sm mb-3" href="{{ route('menu')  }}"><< Menú</a>
