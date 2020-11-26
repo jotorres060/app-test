@@ -2,13 +2,13 @@
 @section('content')
     <div class="text-center">
         <ul class="list-group">
-            <a href="{{ route('exercise.1') }}">
+            <a href="{{ route('exercise.1.index') }}">
                 <li class="list-group-item py-4">Ejercicio 1</li>
             </a>
-            <a href="{{ route('exercise.2') }}">
+            <a href="{{ route('exercise.2.index') }}">
                 <li class="list-group-item py-4">Ejercicio 2</li>
             </a>
-            <a href="{{ route('exercise.3') }}">
+            <a href="{{ route('exercise.3.index') }}">
                 <li class="list-group-item py-4">Ejercicio 3</li>
             </a>
         </ul>

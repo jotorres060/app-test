@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Exercise1Ctrl;
+use App\Http\Controllers\Exercise2Ctrl;
+use App\Http\Controllers\Exercise3Ctrl;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +18,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('menu');
 
-Route::get('/exercise-1', [])->name('exercise.1');
+Route::get('/exercise-1', [Exercise1Ctrl::class, 'index'])->name('exercise.1.index');
+Route::post('/exercise-1/calculate', [Exercise1Ctrl::class, 'calculate'])->name('exercise.1.calculate');
 
-Route::get('/exercise-2', [])->name('exercise.2');
+Route::get('/exercise-2', [Exercise2Ctrl::class, 'index'])->name('exercise.2.index');
 
-Route::get('/exercise-3', [])->name('exercise.3');
+Route::get('/exercise-3', [Exercise3Ctrl::class, 'index'])->name('exercise.3.index');
