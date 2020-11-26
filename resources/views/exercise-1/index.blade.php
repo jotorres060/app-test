@@ -11,19 +11,19 @@
 
             <div class="form-group">
                 <label for="number-1">Número 1</label>
-                <input class="form-control" id="number-1" name="num1" type="number" required>
+                <input class="form-control" id="number-1" name="num1" type="number" value="{{ old('num1') }}" required>
             </div>
             <div class="form-group">
                 <label for="number-2">Número 2</label>
-                <input class="form-control" id="number-2" name="num2" type="number" required>
+                <input class="form-control" id="number-2" name="num2" type="number" value="{{ old('num2') }}" required>
             </div>
             <div class="form-group">
                 <label for="number-3">Número 3</label>
-                <input class="form-control" id="number-3" name="num3" type="number" required>
+                <input class="form-control" id="number-3" name="num3" type="number" value="{{ old('num3') }}" required>
             </div>
             <div class="form-group">
                 <label for="number-4">Número 4</label>
-                <input class="form-control" id="number-4" name="num4" type="number" required>
+                <input class="form-control" id="number-4" name="num4" type="number" value="{{ old('num4') }}" required>
             </div>
             <div class="form-group text-center">
                 <button class="btn btn-secondary btn-sm" type="submit">

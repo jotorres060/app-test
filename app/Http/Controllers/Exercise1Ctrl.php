@@ -32,7 +32,7 @@ class Exercise1Ctrl extends Controller
         $evaluation = $this->evaluate($num1, $num2, $num3, $num4);
 
         if ($evaluation !== null) {
-            return redirect()->back()->withErrors($evaluation);
+            return redirect()->back()->withInput()->withErrors($evaluation);
         }
 
         $result = $this->extractMaxMinTotal($num1, $num2, $num3, $num4);
