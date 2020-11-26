@@ -2,83 +2,56 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Exercise2Request;
 use Illuminate\Http\Request;
 
 class Exercise2Ctrl extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display the view.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        return view('exercise-2.index');
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Calculate the numbers.
      *
+     * @param  \App\Http\Requests\Exercise2Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function calculate(Exercise2Request $request)
     {
-        //
+        $salary = (float) $request->input('salary');
+        $salaryInfo = $this->calculateSalary($salary);
+
+        return view('exercise-2.index', compact('salary','salaryInfo'));
     }
 
     /**
-     * Store a newly created resource in storage.
+     * It does the deductions.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  float $salary
+     * @return array
      */
-    public function store(Request $request)
+    private function calculateSalary(float $salary)
     {
-        //
-    }
+        $baseSalary = 950000.0;
+        $moreThanBase = $salary > $baseSalary;
+        $deduction1 = (8 * $salary) / 100;
+        $totalSalary = $salary - $deduction1;
+        $deduction2 = 0;
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        if ($moreThanBase && $salary <= 2000000) {
+            $deduction2 = (1.5 * $salary) / 100;
+        } else if ($moreThanBase && $salary > 2000000) {
+            $deduction2 = (2.0 * $salary) / 100;
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $totalSalary -= $deduction2;
+        return ['totalSalary' => $totalSalary, 'deduction1' => $deduction1, 'deduction2' => $deduction2];
     }
 }

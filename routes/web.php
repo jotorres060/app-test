@@ -24,5 +24,6 @@ Route::get('/exercise-1', [Exercise1Ctrl::class, 'index'])->name('exercise.1.ind
 Route::post('/exercise-1/calculate', [Exercise1Ctrl::class, 'calculate'])->name('exercise.1.calculate');
 
 Route::get('/exercise-2', [Exercise2Ctrl::class, 'index'])->name('exercise.2.index');
+Route::post('/exercise-2/calculate', [Exercise2Ctrl::class, 'calculate'])->name('exercise.2.calculate');
 
 Route::get('/exercise-3', [Exercise3Ctrl::class, 'index'])->name('exercise.3.index');
