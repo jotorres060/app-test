@@ -24,7 +24,7 @@ class Exercise2Request extends FormRequest
     public function rules()
     {
         return [
-            'salary' => 'required|numeric|min:0'
+            'salary' => 'required|numeric|min:950000'
         ];
     }
 }
